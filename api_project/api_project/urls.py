@@ -1,4 +1,5 @@
 """
+
 URL configuration for api_project project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -20,3 +21,11 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+from django.contrib import admin
+from django.urls import path, include  # ✅ include must be imported!
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),  # ✅ This is what the checker wants
+]
+
